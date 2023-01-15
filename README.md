@@ -292,8 +292,6 @@ keying primarily by resource name, in addition to content hash.
 [SLSA Attestation Model]: https://github.com/slsa-framework/slsa/blob/main/controls/attestations.md
 [SLSA Provenance]: https://slsa.dev/provenance
 [SLSA]: https://github.com/slsa-framework/slsa
-[SPDX]: spec/predicates/spdx.md
 [Statement]: spec/README.md#statement
-[in-toto 0.9]: https://github.com/in-toto/docs/blob/v0.9/in-toto-spec.md
 [in-toto]: https://in-toto.io
 [processing model]: spec/README.md#processing-model
