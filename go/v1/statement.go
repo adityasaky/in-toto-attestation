@@ -47,7 +47,7 @@ func IsValidStatement(s *Statement) bool {
 		}
 
 		// v1 statements require the digest to be set in the subject
-		digest = rd.GetDigest()
+		digest := rd.GetDigest()
 		if digest == nil || len(digest) == 0 {
 			return false
 		}
