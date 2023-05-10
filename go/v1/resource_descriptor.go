@@ -1,6 +1,6 @@
 /*
  * Wrapper APIs for in-toto attestation ResourceDescriptor protos.
- */
+*/
 
 package v1
 

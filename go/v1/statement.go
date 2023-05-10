@@ -1,6 +1,6 @@
 /*
  * Wrapper APIs for in-toto attestation Statement layer protos.
- */
+*/
 
 package v1
 
