@@ -1,5 +1,5 @@
 /*
- * Tests for in-toto attestation ResourceDescriptor protos.
+Tests for in-toto attestation ResourceDescriptor protos.
 */
 
 package v1
@@ -7,22 +7,22 @@ package v1
 import (
 	"testing"
 
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/encoding/protojson"
-	"google.golang.org/protobuf/types/known/structpb"
 	"github.com/stretchr/testify/assert"
+	"google.golang.org/protobuf/encoding/protojson"
+	"google.golang.org/protobuf/proto"
+	"google.golang.org/protobuf/types/known/structpb"
 )
 
 const wantSt = `{"_type":"https://in-toto.io/Statement/v1","subject":[{"name":"theSub","digest":{"alg1":"abc123"}}],"predicateType":"thePredicate","predicate":{"keyObj":{"subKey":"subVal"}}}`
 
 func createTestStatement() (*Statement, error) {
 	// Create a Statement
-	sub, err := NewResourceDescriptorPb("theSub", "",
-		map[string]string{"alg1": "abc123"}, nil, "", "", nil)
-	if err != nil {
-		return nil, err
+
+	sub := &ResourceDescriptor{
+		Name:   "theSub",
+		Digest: map[string]string{"alg1": "abc123"},
 	}
-	
+
 	pred, err := structpb.NewStruct(map[string]interface{}{
 		"keyObj": map[string]interface{}{
 			"subKey": "subVal"}})
@@ -30,11 +30,15 @@ func createTestStatement() (*Statement, error) {
 		return nil, err
 	}
 
-	return NewStatementPb([]*ResourceDescriptor{sub}, "thePredicate",
-		pred)
+	return &Statement{
+		Type:          StatementTypeUri,
+		Subject:       []*ResourceDescriptor{sub},
+		PredicateType: "thePredicate",
+		Predicate:     pred,
+	}, nil
 }
 
-func TestJsonUnmarshalStatement(t *testing.T) {	
+func TestJsonUnmarshalStatement(t *testing.T) {
 	got := &Statement{}
 	err := protojson.Unmarshal([]byte(wantSt), got)
 
@@ -54,7 +58,7 @@ func TestBadStatementType(t *testing.T) {
 
 	assert.Nil(t, err, "Error during JSON unmarshalling")
 
-	result := IsValidStatement(got)
+	result := got.Validate()
 
 	assert.False(t, result,
 		"Error: created malformed Statement (bad type)")
@@ -62,17 +66,17 @@ func TestBadStatementType(t *testing.T) {
 
 func TestBadStatementSubject(t *testing.T) {
 	var badStNoSub = `{"_type":"https://in-toto.io/Statement/v1","subject":[],"predicateType":"thePredicate","predicate":{"keyObj":{"subKey":"subVal"}}}`
-	
+
 	got := &Statement{}
 	err := protojson.Unmarshal([]byte(badStNoSub), got)
 
 	assert.Nil(t, err, "Error during JSON unmarshalling")
 
-	result := IsValidStatement(got)
+	result := got.Validate()
 
 	assert.False(t, result,
 		"Error: created malformed Statement (empty subject)")
-	
+
 	var badStBadSub = `{"_type":"https://in-toto.io/Statement/v1","subject":[{"downloadLocation":"https://example.com/test.zip"}],"predicateType":"thePredicate","predicate":{"keyObj":{"subKey":"subVal"}}}`
 
 	got = &Statement{}
@@ -80,7 +84,7 @@ func TestBadStatementSubject(t *testing.T) {
 
 	assert.Nil(t, err, "Error during JSON unmarshalling")
 
-	result = IsValidStatement(got)
+	result = got.Validate()
 
 	assert.False(t, result,
 		"Error: created malformed Statement (bad subject)")
@@ -94,7 +98,7 @@ func TestBadStatementPredicate(t *testing.T) {
 
 	assert.Nil(t, err, "Error during JSON unmarshalling")
 
-	result := IsValidStatement(got)
+	result := got.Validate()
 
 	assert.False(t, result,
 		"Error: created malformed Statement (bad predicate type)")
@@ -106,7 +110,7 @@ func TestBadStatementPredicate(t *testing.T) {
 
 	assert.Nil(t, err, "Error during JSON unmarshalling")
 
-	result = IsValidStatement(got)
+	result = got.Validate()
 
 	assert.False(t, result,
 		"Error: created malformed Statement (no prdicate)")

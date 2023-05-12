@@ -1,5 +1,5 @@
 /*
- * Tests for in-toto attestation ResourceDescriptor protos.
+Tests for in-toto attestation ResourceDescriptor protos.
 */
 
 package v1
@@ -7,10 +7,10 @@ package v1
 import (
 	"testing"
 
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/encoding/protojson"
-	"google.golang.org/protobuf/types/known/structpb"
 	"github.com/stretchr/testify/assert"
+	"google.golang.org/protobuf/encoding/protojson"
+	"google.golang.org/protobuf/proto"
+	"google.golang.org/protobuf/types/known/structpb"
 )
 
 const wantFullRd = `{"name":"theName","uri":"https://example.com","digest":{"alg1":"abc123"},"content":"Ynl0ZXNjb250ZW50","downloadLocation":"https://example.com/test.zip","mediaType":"theMediaType","annotations":{"a1":{"keyNum": 13,"keyStr":"value1"},"a2":{"keyObj":{"subKey":"subVal"}}}}`
@@ -32,13 +32,20 @@ func createTestResourceDescriptor() (*ResourceDescriptor, error) {
 		return nil, err
 	}
 
-	return NewResourceDescriptorPb("theName", "https://example.com",
-		map[string]string{"alg1": "abc123"}, []byte("bytescontent"),
-		"https://example.com/test.zip", "theMediaType",
-		map[string]*structpb.Struct{"a1": a1, "a2": a2})
+	return &ResourceDescriptor{
+		Name: "theName",
+		Uri:  "https://example.com",
+		Digest: map[string]string{
+			"alg1": "abc123",
+		},
+		Content:          []byte("bytescontent"),
+		DownloadLocation: "https://example.com/test.zip",
+		MediaType:        "theMediaType",
+		Annotations:      map[string]*structpb.Struct{"a1": a1, "a2": a2},
+	}, nil
 }
 
-func TestJsonUnmarshalResourceDescriptor(t *testing.T) {	
+func TestJsonUnmarshalResourceDescriptor(t *testing.T) {
 	got := &ResourceDescriptor{}
 	err := protojson.Unmarshal([]byte(wantFullRd), got)
 
@@ -56,7 +63,7 @@ func TestBadResourceDescriptor(t *testing.T) {
 
 	assert.Nil(t, err, "Error during JSON unmarshalling")
 
-	result := IsValidResourceDescriptor(got)
+	result := got.Validate()
 
 	assert.False(t, result, "Error: created malformed ResourceDescriptor")
 }
