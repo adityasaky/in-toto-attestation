@@ -4,7 +4,7 @@ package in_toto_attestation.v1;
 
 import "google/protobuf/struct.proto";
 
-option go_package = "github.com/in-toto/attestation/go/v1";
+option go_package = "github.com/adityasaky/in-toto-attestation/go/v1";
 option java_package = "io.github.intoto.attestation.v1";
 
 // Proto representation of the in-toto v1 ResourceDescriptor.

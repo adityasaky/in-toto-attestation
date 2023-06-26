@@ -2206,10 +2206,10 @@ public final class Scai {
       "\022N\n\nattributes\030\001 \003(\0132:.in_toto_attestati" +
       "on.predicates.scai.v0.AttributeAssertion" +
       "\022<\n\010producer\030\002 \001(\0132*.in_toto_attestation" +
-      ".v1.ResourceDescriptorBg\n/io.github.into" +
-      "to.attestation.predicates.scai.v0Z4githu" +
-      "b.com/in-toto/attestation/go/predicates/" +
-      "scai/v0b\006proto3"
+      ".v1.ResourceDescriptorBr\n/io.github.into" +
+      "to.attestation.predicates.scai.v0Z?githu" +
+      "b.com/adityasaky/in-toto-attestation/go/" +
+      "predicates/scai/v0b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

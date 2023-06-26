@@ -4,7 +4,7 @@ package in_toto_attestation.predicates.vsa.v0;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/in-toto/attestation/go/predicates/vsa/v0";
+option go_package = "github.com/adityasaky/in-toto-attestation/go/predicates/vsa/v0";
 option java_package = "io.github.intoto.attestation.predicates.vsa.v0";
 
 

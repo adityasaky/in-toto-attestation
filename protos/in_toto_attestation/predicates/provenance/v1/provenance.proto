@@ -7,7 +7,7 @@ import "in_toto_attestation/v1/resource_descriptor.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/in-toto/attestation/go/predicates/provenance/v1";
+option go_package = "github.com/adityasaky/in-toto-attestation/go/predicates/provenance/v1";
 option java_package = "io.github.intoto.attestation.predicates.provenance.v1";
 
 // Proto representation of predicate type https://slsa.dev/provenance/v1

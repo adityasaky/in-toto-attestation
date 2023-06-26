@@ -10,7 +10,7 @@ package in_toto_attestation.predicates.scai.v0;
 import "google/protobuf/struct.proto";
 import "in_toto_attestation/v1/resource_descriptor.proto";
 
-option go_package = "github.com/in-toto/attestation/go/predicates/scai/v0";
+option go_package = "github.com/adityasaky/in-toto-attestation/go/predicates/scai/v0";
 option java_package = "io.github.intoto.attestation.predicates.scai.v0";
 
 message AttributeAssertion {

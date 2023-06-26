@@ -1735,10 +1735,10 @@ public final class TestResultOuterClass {
       "figuration\030\002 \003(\0132*.in_toto_attestation.v" +
       "1.ResourceDescriptor\022\013\n\003url\030\003 \001(\t\022\024\n\014pas" +
       "sed_tests\030\004 \003(\t\022\024\n\014warned_tests\030\005 \003(\t\022\024\n" +
-      "\014failed_tests\030\006 \003(\tBu\n6io.github.intoto." +
-      "attestation.predicates.test_result.v0Z;g" +
-      "ithub.com/in-toto/attestation/go/predica" +
-      "tes/test_result/v0b\006proto3"
+      "\014failed_tests\030\006 \003(\tB\200\001\n6io.github.intoto" +
+      ".attestation.predicates.test_result.v0ZF" +
+      "github.com/adityasaky/in-toto-attestatio" +
+      "n/go/predicates/test_result/v0b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

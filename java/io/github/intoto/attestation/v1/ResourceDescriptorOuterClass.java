@@ -1732,9 +1732,9 @@ com.google.protobuf.Struct defaultValue) {
       "tionsEntry\032-\n\013DigestEntry\022\013\n\003key\030\001 \001(\t\022\r" +
       "\n\005value\030\002 \001(\t:\0028\001\032K\n\020AnnotationsEntry\022\013\n" +
       "\003key\030\001 \001(\t\022&\n\005value\030\002 \001(\0132\027.google.proto" +
-      "buf.Struct:\0028\001BG\n\037io.github.intoto.attes" +
-      "tation.v1Z$github.com/in-toto/attestatio" +
-      "n/go/v1b\006proto3"
+      "buf.Struct:\0028\001BR\n\037io.github.intoto.attes" +
+      "tation.v1Z/github.com/adityasaky/in-toto" +
+      "-attestation/go/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

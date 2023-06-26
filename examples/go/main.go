@@ -5,8 +5,8 @@ import (
 	"log"
 	"strings"
 
-	vpb "github.com/in-toto/attestation/go/predicates/vsa/v0"
-	spb "github.com/in-toto/attestation/go/v1"
+	vpb "github.com/adityasaky/in-toto-attestation/go/predicates/vsa/v0"
+	spb "github.com/adityasaky/in-toto-attestation/go/v1"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/types/known/structpb"
 	"google.golang.org/protobuf/types/known/timestamppb"

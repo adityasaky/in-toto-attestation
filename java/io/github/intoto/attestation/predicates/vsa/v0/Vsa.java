@@ -4512,10 +4512,10 @@ java.lang.String defaultValue) {
       "ionSummary.InputAttestation.DigestEntry\032" +
       "-\n\013DigestEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
       "(\t:\0028\001\0327\n\025DependencyLevelsEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\004:\0028\001Be\n.io.github.int" +
-      "oto.attestation.predicates.vsa.v0Z3githu" +
-      "b.com/in-toto/attestation/go/predicates/" +
-      "vsa/v0b\006proto3"
+      " \001(\t\022\r\n\005value\030\002 \001(\004:\0028\001Bp\n.io.github.int" +
+      "oto.attestation.predicates.vsa.v0Z>githu" +
+      "b.com/adityasaky/in-toto-attestation/go/" +
+      "predicates/vsa/v0b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

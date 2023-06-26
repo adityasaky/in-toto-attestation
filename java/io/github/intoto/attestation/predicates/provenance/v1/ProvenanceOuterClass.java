@@ -5587,10 +5587,11 @@ java.lang.String defaultValue) {
       "\002 \001(\t:\0028\001\"\207\001\n\rBuildMetadata\022\025\n\rinvocatio" +
       "n_id\030\001 \001(\t\022.\n\nstarted_on\030\002 \001(\0132\032.google." +
       "protobuf.Timestamp\022/\n\013finished_on\030\003 \001(\0132" +
-      "\032.google.protobuf.TimestampBs\n5io.github" +
+      "\032.google.protobuf.TimestampB~\n5io.github" +
       ".intoto.attestation.predicates.provenanc" +
-      "e.v1Z:github.com/in-toto/attestation/go/" +
-      "predicates/provenance/v1b\006proto3"
+      "e.v1ZEgithub.com/adityasaky/in-toto-atte" +
+      "station/go/predicates/provenance/v1b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -1568,9 +1568,10 @@ public final class LinkOuterClass {
       "_attestation.v1.ResourceDescriptor\022+\n\nby" +
       "products\030\004 \001(\0132\027.google.protobuf.Struct\022" +
       ",\n\013environment\030\005 \001(\0132\027.google.protobuf.S" +
-      "tructBg\n/io.github.intoto.attestation.pr" +
-      "edicates.link.v0Z4github.com/in-toto/att" +
-      "estation/go/predicates/link/v0b\006proto3"
+      "tructBr\n/io.github.intoto.attestation.pr" +
+      "edicates.link.v0Z?github.com/adityasaky/" +
+      "in-toto-attestation/go/predicates/link/v" +
+      "0b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

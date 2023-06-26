@@ -1360,9 +1360,9 @@ public final class StatementOuterClass {
       "ype\030\001 \001(\tR\005_type\022;\n\007subject\030\002 \003(\0132*.in_t" +
       "oto_attestation.v1.ResourceDescriptor\022\025\n" +
       "\rpredicateType\030\003 \001(\t\022\'\n\tpredicate\030\004 \001(\0132" +
-      "\024.google.protobuf.AnyBG\n\037io.github.intot" +
-      "o.attestation.v1Z$github.com/in-toto/att" +
-      "estation/go/v1b\006proto3"
+      "\024.google.protobuf.AnyBR\n\037io.github.intot" +
+      "o.attestation.v1Z/github.com/adityasaky/" +
+      "in-toto-attestation/go/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
