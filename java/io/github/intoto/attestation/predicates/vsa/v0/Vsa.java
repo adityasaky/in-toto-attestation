@@ -186,6 +186,11 @@ public final class Vsa {
       return new VerificationSummary();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.predicates.vsa.v0.Vsa.internal_static_in_toto_attestation_predicates_vsa_v0_VerificationSummary_descriptor;
@@ -250,6 +255,11 @@ public final class Vsa {
         return new Verifier();
       }
 
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return io.github.intoto.attestation.predicates.vsa.v0.Vsa.internal_static_in_toto_attestation_predicates_vsa_v0_VerificationSummary_Verifier_descriptor;
@@ -410,13 +420,11 @@ public final class Vsa {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-
       public static io.github.intoto.attestation.predicates.vsa.v0.Vsa.VerificationSummary.Verifier parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-
       public static io.github.intoto.attestation.predicates.vsa.v0.Vsa.VerificationSummary.Verifier parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -836,6 +844,11 @@ java.lang.String defaultValue);
         return new Policy();
       }
 
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return io.github.intoto.attestation.predicates.vsa.v0.Vsa.internal_static_in_toto_attestation_predicates_vsa_v0_VerificationSummary_Policy_descriptor;
@@ -1109,13 +1122,11 @@ java.lang.String defaultValue) {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-
       public static io.github.intoto.attestation.predicates.vsa.v0.Vsa.VerificationSummary.Policy parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-
       public static io.github.intoto.attestation.predicates.vsa.v0.Vsa.VerificationSummary.Policy parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1701,6 +1712,11 @@ java.lang.String defaultValue);
         return new InputAttestation();
       }
 
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return io.github.intoto.attestation.predicates.vsa.v0.Vsa.internal_static_in_toto_attestation_predicates_vsa_v0_VerificationSummary_InputAttestation_descriptor;
@@ -1974,13 +1990,11 @@ java.lang.String defaultValue) {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-
       public static io.github.intoto.attestation.predicates.vsa.v0.Vsa.VerificationSummary.InputAttestation parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-
       public static io.github.intoto.attestation.predicates.vsa.v0.Vsa.VerificationSummary.InputAttestation parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3017,13 +3031,11 @@ java.lang.String defaultValue) {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.predicates.vsa.v0.Vsa.VerificationSummary parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.predicates.vsa.v0.Vsa.VerificationSummary parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4347,7 +4359,7 @@ java.lang.String defaultValue) {
           java.lang.String key,
           long value) {
         if (key == null) { throw new NullPointerException("map key"); }
-
+        
         internalGetMutableDependencyLevels().getMutableMap()
             .put(key, value);
         bitField0_ |= 0x00000080;

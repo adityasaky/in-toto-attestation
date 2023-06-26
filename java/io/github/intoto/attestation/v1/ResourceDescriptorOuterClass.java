@@ -173,6 +173,11 @@ com.google.protobuf.Struct defaultValue);
       return new ResourceDescriptor();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.v1.ResourceDescriptorOuterClass.internal_static_in_toto_attestation_v1_ResourceDescriptor_descriptor;
@@ -718,13 +723,11 @@ com.google.protobuf.Struct defaultValue) {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.v1.ResourceDescriptorOuterClass.ResourceDescriptor parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.v1.ResourceDescriptorOuterClass.ResourceDescriptor parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)

@@ -157,12 +157,9 @@ public final class TestResultOuterClass {
       result_ = "";
       configuration_ = java.util.Collections.emptyList();
       url_ = "";
-      passedTests_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
-      warnedTests_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
-      failedTests_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      passedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      warnedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      failedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -172,6 +169,11 @@ public final class TestResultOuterClass {
       return new TestResult();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.predicates.test_result.v0.TestResultOuterClass.internal_static_in_toto_attestation_predicates_test_result_v0_TestResult_descriptor;
@@ -306,8 +308,7 @@ public final class TestResultOuterClass {
 
     public static final int PASSED_TESTS_FIELD_NUMBER = 4;
     @SuppressWarnings("serial")
-    private com.google.protobuf.LazyStringArrayList passedTests_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringList passedTests_;
     /**
      * <code>repeated string passed_tests = 4;</code>
      * @return A list containing the passedTests.
@@ -343,8 +344,7 @@ public final class TestResultOuterClass {
 
     public static final int WARNED_TESTS_FIELD_NUMBER = 5;
     @SuppressWarnings("serial")
-    private com.google.protobuf.LazyStringArrayList warnedTests_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringList warnedTests_;
     /**
      * <code>repeated string warned_tests = 5;</code>
      * @return A list containing the warnedTests.
@@ -380,8 +380,7 @@ public final class TestResultOuterClass {
 
     public static final int FAILED_TESTS_FIELD_NUMBER = 6;
     @SuppressWarnings("serial")
-    private com.google.protobuf.LazyStringArrayList failedTests_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringList failedTests_;
     /**
      * <code>repeated string failed_tests = 6;</code>
      * @return A list containing the failedTests.
@@ -597,13 +596,11 @@ public final class TestResultOuterClass {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.predicates.test_result.v0.TestResultOuterClass.TestResult parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.predicates.test_result.v0.TestResultOuterClass.TestResult parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -688,12 +685,12 @@ public final class TestResultOuterClass {
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         url_ = "";
-        passedTests_ =
-            com.google.protobuf.LazyStringArrayList.emptyList();
-        warnedTests_ =
-            com.google.protobuf.LazyStringArrayList.emptyList();
-        failedTests_ =
-            com.google.protobuf.LazyStringArrayList.emptyList();
+        passedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        warnedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        failedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -736,6 +733,21 @@ public final class TestResultOuterClass {
         } else {
           result.configuration_ = configurationBuilder_.build();
         }
+        if (((bitField0_ & 0x00000008) != 0)) {
+          passedTests_ = passedTests_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.passedTests_ = passedTests_;
+        if (((bitField0_ & 0x00000010) != 0)) {
+          warnedTests_ = warnedTests_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.warnedTests_ = warnedTests_;
+        if (((bitField0_ & 0x00000020) != 0)) {
+          failedTests_ = failedTests_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.failedTests_ = failedTests_;
       }
 
       private void buildPartial0(io.github.intoto.attestation.predicates.test_result.v0.TestResultOuterClass.TestResult result) {
@@ -745,18 +757,6 @@ public final class TestResultOuterClass {
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.url_ = url_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          passedTests_.makeImmutable();
-          result.passedTests_ = passedTests_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          warnedTests_.makeImmutable();
-          result.warnedTests_ = warnedTests_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          failedTests_.makeImmutable();
-          result.failedTests_ = failedTests_;
         }
       }
 
@@ -843,7 +843,7 @@ public final class TestResultOuterClass {
         if (!other.passedTests_.isEmpty()) {
           if (passedTests_.isEmpty()) {
             passedTests_ = other.passedTests_;
-            bitField0_ |= 0x00000008;
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensurePassedTestsIsMutable();
             passedTests_.addAll(other.passedTests_);
@@ -853,7 +853,7 @@ public final class TestResultOuterClass {
         if (!other.warnedTests_.isEmpty()) {
           if (warnedTests_.isEmpty()) {
             warnedTests_ = other.warnedTests_;
-            bitField0_ |= 0x00000010;
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureWarnedTestsIsMutable();
             warnedTests_.addAll(other.warnedTests_);
@@ -863,7 +863,7 @@ public final class TestResultOuterClass {
         if (!other.failedTests_.isEmpty()) {
           if (failedTests_.isEmpty()) {
             failedTests_ = other.failedTests_;
-            bitField0_ |= 0x00000020;
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureFailedTestsIsMutable();
             failedTests_.addAll(other.failedTests_);
@@ -1338,13 +1338,12 @@ public final class TestResultOuterClass {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList passedTests_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringList passedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensurePassedTestsIsMutable() {
-        if (!passedTests_.isModifiable()) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           passedTests_ = new com.google.protobuf.LazyStringArrayList(passedTests_);
-        }
-        bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000008;
+         }
       }
       /**
        * <code>repeated string passed_tests = 4;</code>
@@ -1352,8 +1351,7 @@ public final class TestResultOuterClass {
        */
       public com.google.protobuf.ProtocolStringList
           getPassedTestsList() {
-        passedTests_.makeImmutable();
-        return passedTests_;
+        return passedTests_.getUnmodifiableView();
       }
       /**
        * <code>repeated string passed_tests = 4;</code>
@@ -1390,7 +1388,6 @@ public final class TestResultOuterClass {
         if (value == null) { throw new NullPointerException(); }
         ensurePassedTestsIsMutable();
         passedTests_.set(index, value);
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1404,7 +1401,6 @@ public final class TestResultOuterClass {
         if (value == null) { throw new NullPointerException(); }
         ensurePassedTestsIsMutable();
         passedTests_.add(value);
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1418,7 +1414,6 @@ public final class TestResultOuterClass {
         ensurePassedTestsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, passedTests_);
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1427,9 +1422,8 @@ public final class TestResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPassedTests() {
-        passedTests_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);;
+        passedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1444,18 +1438,16 @@ public final class TestResultOuterClass {
         checkByteStringIsUtf8(value);
         ensurePassedTestsIsMutable();
         passedTests_.add(value);
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList warnedTests_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringList warnedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureWarnedTestsIsMutable() {
-        if (!warnedTests_.isModifiable()) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           warnedTests_ = new com.google.protobuf.LazyStringArrayList(warnedTests_);
-        }
-        bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000010;
+         }
       }
       /**
        * <code>repeated string warned_tests = 5;</code>
@@ -1463,8 +1455,7 @@ public final class TestResultOuterClass {
        */
       public com.google.protobuf.ProtocolStringList
           getWarnedTestsList() {
-        warnedTests_.makeImmutable();
-        return warnedTests_;
+        return warnedTests_.getUnmodifiableView();
       }
       /**
        * <code>repeated string warned_tests = 5;</code>
@@ -1501,7 +1492,6 @@ public final class TestResultOuterClass {
         if (value == null) { throw new NullPointerException(); }
         ensureWarnedTestsIsMutable();
         warnedTests_.set(index, value);
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1515,7 +1505,6 @@ public final class TestResultOuterClass {
         if (value == null) { throw new NullPointerException(); }
         ensureWarnedTestsIsMutable();
         warnedTests_.add(value);
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1529,7 +1518,6 @@ public final class TestResultOuterClass {
         ensureWarnedTestsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, warnedTests_);
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1538,9 +1526,8 @@ public final class TestResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearWarnedTests() {
-        warnedTests_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);;
+        warnedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -1555,18 +1542,16 @@ public final class TestResultOuterClass {
         checkByteStringIsUtf8(value);
         ensureWarnedTestsIsMutable();
         warnedTests_.add(value);
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList failedTests_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringList failedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureFailedTestsIsMutable() {
-        if (!failedTests_.isModifiable()) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           failedTests_ = new com.google.protobuf.LazyStringArrayList(failedTests_);
-        }
-        bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000020;
+         }
       }
       /**
        * <code>repeated string failed_tests = 6;</code>
@@ -1574,8 +1559,7 @@ public final class TestResultOuterClass {
        */
       public com.google.protobuf.ProtocolStringList
           getFailedTestsList() {
-        failedTests_.makeImmutable();
-        return failedTests_;
+        return failedTests_.getUnmodifiableView();
       }
       /**
        * <code>repeated string failed_tests = 6;</code>
@@ -1612,7 +1596,6 @@ public final class TestResultOuterClass {
         if (value == null) { throw new NullPointerException(); }
         ensureFailedTestsIsMutable();
         failedTests_.set(index, value);
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1626,7 +1609,6 @@ public final class TestResultOuterClass {
         if (value == null) { throw new NullPointerException(); }
         ensureFailedTestsIsMutable();
         failedTests_.add(value);
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1640,7 +1622,6 @@ public final class TestResultOuterClass {
         ensureFailedTestsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, failedTests_);
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1649,9 +1630,8 @@ public final class TestResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFailedTests() {
-        failedTests_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);;
+        failedTests_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -1666,7 +1646,6 @@ public final class TestResultOuterClass {
         checkByteStringIsUtf8(value);
         ensureFailedTestsIsMutable();
         failedTests_.add(value);
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }

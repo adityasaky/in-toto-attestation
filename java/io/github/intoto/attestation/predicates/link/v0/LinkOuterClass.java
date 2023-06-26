@@ -123,8 +123,7 @@ public final class LinkOuterClass {
     }
     private Link() {
       name_ = "";
-      command_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       materials_ = java.util.Collections.emptyList();
     }
 
@@ -135,6 +134,11 @@ public final class LinkOuterClass {
       return new Link();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.predicates.link.v0.LinkOuterClass.internal_static_in_toto_attestation_predicates_link_v0_Link_descriptor;
@@ -189,8 +193,7 @@ public final class LinkOuterClass {
 
     public static final int COMMAND_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private com.google.protobuf.LazyStringArrayList command_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringList command_;
     /**
      * <code>repeated string command = 2;</code>
      * @return A list containing the command.
@@ -487,13 +490,11 @@ public final class LinkOuterClass {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.predicates.link.v0.LinkOuterClass.Link parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.predicates.link.v0.LinkOuterClass.Link parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -570,8 +571,8 @@ public final class LinkOuterClass {
         super.clear();
         bitField0_ = 0;
         name_ = "";
-        command_ =
-            com.google.protobuf.LazyStringArrayList.emptyList();
+        command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (materialsBuilder_ == null) {
           materials_ = java.util.Collections.emptyList();
         } else {
@@ -622,6 +623,11 @@ public final class LinkOuterClass {
       }
 
       private void buildPartialRepeatedFields(io.github.intoto.attestation.predicates.link.v0.LinkOuterClass.Link result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          command_ = command_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.command_ = command_;
         if (materialsBuilder_ == null) {
           if (((bitField0_ & 0x00000004) != 0)) {
             materials_ = java.util.Collections.unmodifiableList(materials_);
@@ -637,10 +643,6 @@ public final class LinkOuterClass {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.name_ = name_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          command_.makeImmutable();
-          result.command_ = command_;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.byproducts_ = byproductsBuilder_ == null
@@ -706,7 +708,7 @@ public final class LinkOuterClass {
         if (!other.command_.isEmpty()) {
           if (command_.isEmpty()) {
             command_ = other.command_;
-            bitField0_ |= 0x00000002;
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureCommandIsMutable();
             command_.addAll(other.command_);
@@ -898,13 +900,12 @@ public final class LinkOuterClass {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList command_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringList command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureCommandIsMutable() {
-        if (!command_.isModifiable()) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           command_ = new com.google.protobuf.LazyStringArrayList(command_);
-        }
-        bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000002;
+         }
       }
       /**
        * <code>repeated string command = 2;</code>
@@ -912,8 +913,7 @@ public final class LinkOuterClass {
        */
       public com.google.protobuf.ProtocolStringList
           getCommandList() {
-        command_.makeImmutable();
-        return command_;
+        return command_.getUnmodifiableView();
       }
       /**
        * <code>repeated string command = 2;</code>
@@ -950,7 +950,6 @@ public final class LinkOuterClass {
         if (value == null) { throw new NullPointerException(); }
         ensureCommandIsMutable();
         command_.set(index, value);
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -964,7 +963,6 @@ public final class LinkOuterClass {
         if (value == null) { throw new NullPointerException(); }
         ensureCommandIsMutable();
         command_.add(value);
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -978,7 +976,6 @@ public final class LinkOuterClass {
         ensureCommandIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, command_);
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -987,9 +984,8 @@ public final class LinkOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCommand() {
-        command_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);;
+        command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1004,7 +1000,6 @@ public final class LinkOuterClass {
         checkByteStringIsUtf8(value);
         ensureCommandIsMutable();
         command_.add(value);
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }

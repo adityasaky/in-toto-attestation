@@ -75,6 +75,11 @@ public final class ProvenanceOuterClass {
       return new Provenance();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.internal_static_in_toto_attestation_predicates_provenance_v1_Provenance_descriptor;
@@ -270,13 +275,11 @@ public final class ProvenanceOuterClass {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.Provenance parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.Provenance parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -914,6 +917,11 @@ public final class ProvenanceOuterClass {
       return new BuildDefinition();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.internal_static_in_toto_attestation_predicates_provenance_v1_BuildDefinition_descriptor;
@@ -1212,13 +1220,11 @@ public final class ProvenanceOuterClass {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.BuildDefinition parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.BuildDefinition parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2223,6 +2229,11 @@ public final class ProvenanceOuterClass {
       return new RunDetails();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.internal_static_in_toto_attestation_predicates_provenance_v1_RunDetails_descriptor;
@@ -2472,13 +2483,11 @@ public final class ProvenanceOuterClass {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.RunDetails parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.RunDetails parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3414,6 +3423,11 @@ java.lang.String defaultValue);
       return new Builder();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.internal_static_in_toto_attestation_predicates_provenance_v1_Builder_descriptor;
@@ -3741,13 +3755,11 @@ java.lang.String defaultValue) {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.Builder parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.Builder parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4628,6 +4640,11 @@ java.lang.String defaultValue) {
       return new BuildMetadata();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.internal_static_in_toto_attestation_predicates_provenance_v1_BuildMetadata_descriptor;
@@ -4872,13 +4889,11 @@ java.lang.String defaultValue) {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.BuildMetadata parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.predicates.provenance.v1.ProvenanceOuterClass.BuildMetadata parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)

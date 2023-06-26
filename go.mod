@@ -1,8 +1,9 @@
-module github.com/in-toto/attestation
+module github.com/adityasaky/in-toto-attestation
 
 go 1.20
 
 require (
+	github.com/in-toto/attestation v0.1.1-0.20230626162023-461c6b92b7f7
 	github.com/stretchr/testify v1.8.4
 	google.golang.org/protobuf v1.30.0
 )

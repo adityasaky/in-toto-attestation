@@ -75,19 +75,19 @@ public final class StatementOuterClass {
         getPredicateTypeBytes();
 
     /**
-     * <code>.google.protobuf.Struct predicate = 4;</code>
+     * <code>.google.protobuf.Any predicate = 4;</code>
      * @return Whether the predicate field is set.
      */
     boolean hasPredicate();
     /**
-     * <code>.google.protobuf.Struct predicate = 4;</code>
+     * <code>.google.protobuf.Any predicate = 4;</code>
      * @return The predicate.
      */
-    com.google.protobuf.Struct getPredicate();
+    com.google.protobuf.Any getPredicate();
     /**
-     * <code>.google.protobuf.Struct predicate = 4;</code>
+     * <code>.google.protobuf.Any predicate = 4;</code>
      */
-    com.google.protobuf.StructOrBuilder getPredicateOrBuilder();
+    com.google.protobuf.AnyOrBuilder getPredicateOrBuilder();
   }
   /**
    * <pre>
@@ -120,6 +120,11 @@ public final class StatementOuterClass {
       return new Statement();
     }
 
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.github.intoto.attestation.v1.StatementOuterClass.internal_static_in_toto_attestation_v1_Statement_descriptor;
@@ -261,9 +266,9 @@ public final class StatementOuterClass {
     }
 
     public static final int PREDICATE_FIELD_NUMBER = 4;
-    private com.google.protobuf.Struct predicate_;
+    private com.google.protobuf.Any predicate_;
     /**
-     * <code>.google.protobuf.Struct predicate = 4;</code>
+     * <code>.google.protobuf.Any predicate = 4;</code>
      * @return Whether the predicate field is set.
      */
     @java.lang.Override
@@ -271,19 +276,19 @@ public final class StatementOuterClass {
       return predicate_ != null;
     }
     /**
-     * <code>.google.protobuf.Struct predicate = 4;</code>
+     * <code>.google.protobuf.Any predicate = 4;</code>
      * @return The predicate.
      */
     @java.lang.Override
-    public com.google.protobuf.Struct getPredicate() {
-      return predicate_ == null ? com.google.protobuf.Struct.getDefaultInstance() : predicate_;
+    public com.google.protobuf.Any getPredicate() {
+      return predicate_ == null ? com.google.protobuf.Any.getDefaultInstance() : predicate_;
     }
     /**
-     * <code>.google.protobuf.Struct predicate = 4;</code>
+     * <code>.google.protobuf.Any predicate = 4;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.StructOrBuilder getPredicateOrBuilder() {
-      return predicate_ == null ? com.google.protobuf.Struct.getDefaultInstance() : predicate_;
+    public com.google.protobuf.AnyOrBuilder getPredicateOrBuilder() {
+      return predicate_ == null ? com.google.protobuf.Any.getDefaultInstance() : predicate_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -433,13 +438,11 @@ public final class StatementOuterClass {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static io.github.intoto.attestation.v1.StatementOuterClass.Statement parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static io.github.intoto.attestation.v1.StatementOuterClass.Statement parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1154,31 +1157,31 @@ public final class StatementOuterClass {
         return this;
       }
 
-      private com.google.protobuf.Struct predicate_;
+      private com.google.protobuf.Any predicate_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> predicateBuilder_;
+          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> predicateBuilder_;
       /**
-       * <code>.google.protobuf.Struct predicate = 4;</code>
+       * <code>.google.protobuf.Any predicate = 4;</code>
        * @return Whether the predicate field is set.
        */
       public boolean hasPredicate() {
         return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>.google.protobuf.Struct predicate = 4;</code>
+       * <code>.google.protobuf.Any predicate = 4;</code>
        * @return The predicate.
        */
-      public com.google.protobuf.Struct getPredicate() {
+      public com.google.protobuf.Any getPredicate() {
         if (predicateBuilder_ == null) {
-          return predicate_ == null ? com.google.protobuf.Struct.getDefaultInstance() : predicate_;
+          return predicate_ == null ? com.google.protobuf.Any.getDefaultInstance() : predicate_;
         } else {
           return predicateBuilder_.getMessage();
         }
       }
       /**
-       * <code>.google.protobuf.Struct predicate = 4;</code>
+       * <code>.google.protobuf.Any predicate = 4;</code>
        */
-      public Builder setPredicate(com.google.protobuf.Struct value) {
+      public Builder setPredicate(com.google.protobuf.Any value) {
         if (predicateBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1192,10 +1195,10 @@ public final class StatementOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Struct predicate = 4;</code>
+       * <code>.google.protobuf.Any predicate = 4;</code>
        */
       public Builder setPredicate(
-          com.google.protobuf.Struct.Builder builderForValue) {
+          com.google.protobuf.Any.Builder builderForValue) {
         if (predicateBuilder_ == null) {
           predicate_ = builderForValue.build();
         } else {
@@ -1206,13 +1209,13 @@ public final class StatementOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Struct predicate = 4;</code>
+       * <code>.google.protobuf.Any predicate = 4;</code>
        */
-      public Builder mergePredicate(com.google.protobuf.Struct value) {
+      public Builder mergePredicate(com.google.protobuf.Any value) {
         if (predicateBuilder_ == null) {
           if (((bitField0_ & 0x00000008) != 0) &&
             predicate_ != null &&
-            predicate_ != com.google.protobuf.Struct.getDefaultInstance()) {
+            predicate_ != com.google.protobuf.Any.getDefaultInstance()) {
             getPredicateBuilder().mergeFrom(value);
           } else {
             predicate_ = value;
@@ -1225,7 +1228,7 @@ public final class StatementOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Struct predicate = 4;</code>
+       * <code>.google.protobuf.Any predicate = 4;</code>
        */
       public Builder clearPredicate() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -1238,33 +1241,33 @@ public final class StatementOuterClass {
         return this;
       }
       /**
-       * <code>.google.protobuf.Struct predicate = 4;</code>
+       * <code>.google.protobuf.Any predicate = 4;</code>
        */
-      public com.google.protobuf.Struct.Builder getPredicateBuilder() {
+      public com.google.protobuf.Any.Builder getPredicateBuilder() {
         bitField0_ |= 0x00000008;
         onChanged();
         return getPredicateFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Struct predicate = 4;</code>
+       * <code>.google.protobuf.Any predicate = 4;</code>
        */
-      public com.google.protobuf.StructOrBuilder getPredicateOrBuilder() {
+      public com.google.protobuf.AnyOrBuilder getPredicateOrBuilder() {
         if (predicateBuilder_ != null) {
           return predicateBuilder_.getMessageOrBuilder();
         } else {
           return predicate_ == null ?
-              com.google.protobuf.Struct.getDefaultInstance() : predicate_;
+              com.google.protobuf.Any.getDefaultInstance() : predicate_;
         }
       }
       /**
-       * <code>.google.protobuf.Struct predicate = 4;</code>
+       * <code>.google.protobuf.Any predicate = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
           getPredicateFieldBuilder() {
         if (predicateBuilder_ == null) {
           predicateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+              com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
                   getPredicate(),
                   getParentForChildren(),
                   isClean());
@@ -1351,20 +1354,20 @@ public final class StatementOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n&in_toto_attestation/v1/statement.proto" +
-      "\022\026in_toto_attestation.v1\032\034google/protobu" +
-      "f/struct.proto\0320in_toto_attestation/v1/r" +
-      "esource_descriptor.proto\"\240\001\n\tStatement\022\023" +
-      "\n\004type\030\001 \001(\tR\005_type\022;\n\007subject\030\002 \003(\0132*.i" +
-      "n_toto_attestation.v1.ResourceDescriptor" +
-      "\022\025\n\rpredicateType\030\003 \001(\t\022*\n\tpredicate\030\004 \001" +
-      "(\0132\027.google.protobuf.StructBG\n\037io.github" +
-      ".intoto.attestation.v1Z$github.com/in-to" +
-      "to/attestation/go/v1b\006proto3"
+      "\022\026in_toto_attestation.v1\032\031google/protobu" +
+      "f/any.proto\0320in_toto_attestation/v1/reso" +
+      "urce_descriptor.proto\"\235\001\n\tStatement\022\023\n\004t" +
+      "ype\030\001 \001(\tR\005_type\022;\n\007subject\030\002 \003(\0132*.in_t" +
+      "oto_attestation.v1.ResourceDescriptor\022\025\n" +
+      "\rpredicateType\030\003 \001(\t\022\'\n\tpredicate\030\004 \001(\0132" +
+      "\024.google.protobuf.AnyBG\n\037io.github.intot" +
+      "o.attestation.v1Z$github.com/in-toto/att" +
+      "estation/go/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.StructProto.getDescriptor(),
+          com.google.protobuf.AnyProto.getDescriptor(),
           io.github.intoto.attestation.v1.ResourceDescriptorOuterClass.getDescriptor(),
         });
     internal_static_in_toto_attestation_v1_Statement_descriptor =
@@ -1373,7 +1376,7 @@ public final class StatementOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_in_toto_attestation_v1_Statement_descriptor,
         new java.lang.String[] { "Type", "Subject", "PredicateType", "Predicate", });
-    com.google.protobuf.StructProto.getDescriptor();
+    com.google.protobuf.AnyProto.getDescriptor();
     io.github.intoto.attestation.v1.ResourceDescriptorOuterClass.getDescriptor();
   }
 
