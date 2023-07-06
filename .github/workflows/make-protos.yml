@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - "main"
+      - "test-regen"
   schedule:
     # There are two reasons we may need to regenerate libraries.
     # First, there's an explicit change merged into main. That's caught by the
@@ -29,6 +30,8 @@ jobs:
           echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
       - name: Checkout repo
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+        with:
+          persist-credentials: false
       - name: Generate libraries
         run: |
           make protos
