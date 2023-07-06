@@ -44,7 +44,7 @@ jobs:
           commit-message: Regenerate attestation libraries
           title: Regenerate attestation libraries
           body: This PR updates the attestation libraries generated using protoc.
-          base: main
+          base: test-regen
           branch: actions-regenerate-attestation-libraries
           delete-branch: true
           signoff: true
