@@ -23,5 +23,5 @@ message ResourceDescriptor {
 
   string media_type = 6;
 
-  map<string, google.protobuf.Value> annotations = 7;
+  google.protobuf.Struct annotations = 7;
 }
