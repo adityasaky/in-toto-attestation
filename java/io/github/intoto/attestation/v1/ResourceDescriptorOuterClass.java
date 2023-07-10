@@ -83,24 +83,24 @@ java.lang.String defaultValue);
     com.google.protobuf.ByteString getContent();
 
     /**
-     * <code>string downloadLocation = 5;</code>
+     * <code>string download_location = 5;</code>
      * @return The downloadLocation.
      */
     java.lang.String getDownloadLocation();
     /**
-     * <code>string downloadLocation = 5;</code>
+     * <code>string download_location = 5;</code>
      * @return The bytes for downloadLocation.
      */
     com.google.protobuf.ByteString
         getDownloadLocationBytes();
 
     /**
-     * <code>string mediaType = 6;</code>
+     * <code>string media_type = 6;</code>
      * @return The mediaType.
      */
     java.lang.String getMediaType();
     /**
-     * <code>string mediaType = 6;</code>
+     * <code>string media_type = 6;</code>
      * @return The bytes for mediaType.
      */
     com.google.protobuf.ByteString
@@ -368,11 +368,11 @@ java.lang.String defaultValue) {
       return content_;
     }
 
-    public static final int DOWNLOADLOCATION_FIELD_NUMBER = 5;
+    public static final int DOWNLOAD_LOCATION_FIELD_NUMBER = 5;
     @SuppressWarnings("serial")
     private volatile java.lang.Object downloadLocation_ = "";
     /**
-     * <code>string downloadLocation = 5;</code>
+     * <code>string download_location = 5;</code>
      * @return The downloadLocation.
      */
     @java.lang.Override
@@ -389,7 +389,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string downloadLocation = 5;</code>
+     * <code>string download_location = 5;</code>
      * @return The bytes for downloadLocation.
      */
     @java.lang.Override
@@ -407,11 +407,11 @@ java.lang.String defaultValue) {
       }
     }
 
-    public static final int MEDIATYPE_FIELD_NUMBER = 6;
+    public static final int MEDIA_TYPE_FIELD_NUMBER = 6;
     @SuppressWarnings("serial")
     private volatile java.lang.Object mediaType_ = "";
     /**
-     * <code>string mediaType = 6;</code>
+     * <code>string media_type = 6;</code>
      * @return The mediaType.
      */
     @java.lang.Override
@@ -428,7 +428,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string mediaType = 6;</code>
+     * <code>string media_type = 6;</code>
      * @return The bytes for mediaType.
      */
     @java.lang.Override
@@ -661,9 +661,9 @@ com.google.protobuf.Value defaultValue) {
       }
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
-      hash = (37 * hash) + DOWNLOADLOCATION_FIELD_NUMBER;
+      hash = (37 * hash) + DOWNLOAD_LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getDownloadLocation().hashCode();
-      hash = (37 * hash) + MEDIATYPE_FIELD_NUMBER;
+      hash = (37 * hash) + MEDIA_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getMediaType().hashCode();
       if (!internalGetAnnotations().getMap().isEmpty()) {
         hash = (37 * hash) + ANNOTATIONS_FIELD_NUMBER;
@@ -1361,7 +1361,7 @@ java.lang.String defaultValue) {
 
       private java.lang.Object downloadLocation_ = "";
       /**
-       * <code>string downloadLocation = 5;</code>
+       * <code>string download_location = 5;</code>
        * @return The downloadLocation.
        */
       public java.lang.String getDownloadLocation() {
@@ -1377,7 +1377,7 @@ java.lang.String defaultValue) {
         }
       }
       /**
-       * <code>string downloadLocation = 5;</code>
+       * <code>string download_location = 5;</code>
        * @return The bytes for downloadLocation.
        */
       public com.google.protobuf.ByteString
@@ -1394,7 +1394,7 @@ java.lang.String defaultValue) {
         }
       }
       /**
-       * <code>string downloadLocation = 5;</code>
+       * <code>string download_location = 5;</code>
        * @param value The downloadLocation to set.
        * @return This builder for chaining.
        */
@@ -1407,7 +1407,7 @@ java.lang.String defaultValue) {
         return this;
       }
       /**
-       * <code>string downloadLocation = 5;</code>
+       * <code>string download_location = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearDownloadLocation() {
@@ -1417,7 +1417,7 @@ java.lang.String defaultValue) {
         return this;
       }
       /**
-       * <code>string downloadLocation = 5;</code>
+       * <code>string download_location = 5;</code>
        * @param value The bytes for downloadLocation to set.
        * @return This builder for chaining.
        */
@@ -1433,7 +1433,7 @@ java.lang.String defaultValue) {
 
       private java.lang.Object mediaType_ = "";
       /**
-       * <code>string mediaType = 6;</code>
+       * <code>string media_type = 6;</code>
        * @return The mediaType.
        */
       public java.lang.String getMediaType() {
@@ -1449,7 +1449,7 @@ java.lang.String defaultValue) {
         }
       }
       /**
-       * <code>string mediaType = 6;</code>
+       * <code>string media_type = 6;</code>
        * @return The bytes for mediaType.
        */
       public com.google.protobuf.ByteString
@@ -1466,7 +1466,7 @@ java.lang.String defaultValue) {
         }
       }
       /**
-       * <code>string mediaType = 6;</code>
+       * <code>string media_type = 6;</code>
        * @param value The mediaType to set.
        * @return This builder for chaining.
        */
@@ -1479,7 +1479,7 @@ java.lang.String defaultValue) {
         return this;
       }
       /**
-       * <code>string mediaType = 6;</code>
+       * <code>string media_type = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearMediaType() {
@@ -1489,7 +1489,7 @@ java.lang.String defaultValue) {
         return this;
       }
       /**
-       * <code>string mediaType = 6;</code>
+       * <code>string media_type = 6;</code>
        * @param value The bytes for mediaType to set.
        * @return This builder for chaining.
        */
@@ -1719,19 +1719,19 @@ com.google.protobuf.Value defaultValue) {
     java.lang.String[] descriptorData = {
       "\n0in_toto_attestation/v1/resource_descri" +
       "ptor.proto\022\026in_toto_attestation.v1\032\034goog" +
-      "le/protobuf/struct.proto\"\202\003\n\022ResourceDes" +
+      "le/protobuf/struct.proto\"\204\003\n\022ResourceDes" +
       "criptor\022\014\n\004name\030\001 \001(\t\022\013\n\003uri\030\002 \001(\t\022F\n\006di" +
       "gest\030\003 \003(\01326.in_toto_attestation.v1.Reso" +
       "urceDescriptor.DigestEntry\022\017\n\007content\030\004 " +
-      "\001(\014\022\030\n\020downloadLocation\030\005 \001(\t\022\021\n\tmediaTy" +
-      "pe\030\006 \001(\t\022P\n\013annotations\030\007 \003(\0132;.in_toto_" +
-      "attestation.v1.ResourceDescriptor.Annota" +
-      "tionsEntry\032-\n\013DigestEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001\032J\n\020AnnotationsEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022%\n\005value\030\002 \001(\0132\026.google.proto" +
-      "buf.Value:\0028\001BG\n\037io.github.intoto.attest" +
-      "ation.v1Z$github.com/in-toto/attestation" +
-      "/go/v1b\006proto3"
+      "\001(\014\022\031\n\021download_location\030\005 \001(\t\022\022\n\nmedia_" +
+      "type\030\006 \001(\t\022P\n\013annotations\030\007 \003(\0132;.in_tot" +
+      "o_attestation.v1.ResourceDescriptor.Anno" +
+      "tationsEntry\032-\n\013DigestEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\032J\n\020AnnotationsEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022%\n\005value\030\002 \001(\0132\026.google.pro" +
+      "tobuf.Value:\0028\001BG\n\037io.github.intoto.atte" +
+      "station.v1Z$github.com/in-toto/attestati" +
+      "on/go/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
