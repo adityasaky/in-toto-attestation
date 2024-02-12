@@ -35,17 +35,18 @@ A Verification Summary Attestation (VSA) is an attestation that some entity
 (`verifier`) verified one or more software artifacts (the `subject` of an
 in-toto attestation [Statement]) by evaluating the artifact and a `bundle`
 of attestations against some `policy`.  Users who trust the `verifier` may
-assume that the artifacts satisfied the indicated security polciy without
+assume that the artifacts satisfied the indicated security policy without
 themselves needing to evaluate the artifact or to have access to the
 attestations the `verifier` used to make its determination.
 
+**adityasaky: This is very specific to SLSA.**
 The VSA also allows consumers to determine the verified levels of
 all of an artifact’s _transitive_ dependencies.  The verifier does this by
 either a) verifying the provenance of each non-source dependency listed in
 the [resolvedDependencies](/provenance/v1#resolvedDependencies) of the artifact
 being verified (recursively) or b) matching the non-source dependency
 listed in `resolvedDependencies` (`subject.digest` ==
-`resolvedDependencies.digest` and, ideally, `vsa.resourceUri` ==
+`resolvedDependencies.digest` and, ideally, `vsa.subjectUri` ==
 `resolvedDependencies.uri`) to a VSA _for that dependency_ and using
 `vsa.verifiedProperties` and `vsa.dependencyProperties`.  Policy verifiers
 wishing to establish minimum requirements on dependencies may use
@@ -56,10 +57,7 @@ wishing to establish minimum requirements on dependencies may use
 ```jsonc
 // Standard attestation fields:
 "_type": "https://in-toto.io/Statement/v1",
-"subject": [{
-  "name": <NAME>,
-  "digest": { <digest-in-request> }
-}],
+"subject": [{...}],
 
 // Predicate
 "predicateType": "https://in-toto.io/attestation/verification-summary/v0.1",
@@ -109,6 +107,10 @@ This predicate follows the in-toto attestation [parsing rules]. Summary:
 _NOTE: This section describes the fields within `predicate`. For a description
 of the other top-level fields, such as `subject`, see [Statement]._
 
+**adityasaky: verifier, in an in-toto context, should be identified by the
+signer of the attestation. A VSA must still be verified, including its
+signature. We do have to balance in-toto and SLSA here.**
+
 <a id="verifier"></a>
 `verifier` _object, required_
 
@@ -146,6 +148,8 @@ of the other top-level fields, such as `subject`, see [Statement]._
 
 > URI that identifies the resource associated with the artifact being verified.
 
+**adityasaky: What about policy keys?**
+
 <a id="policy"></a>
 `policy` _object ([ResourceDescriptor]), required_
 
@@ -165,11 +169,17 @@ of the other top-level fields, such as `subject`, see [Statement]._
 > Each entry MUST contain a `digest` of the attestation and SHOULD contains a
 > `uri` that can be used to fetch the attestation.
 
+**adityasaky: In the generic in-toto sense, having a required verifiedProperties
+field is a bit strange as we don't define a notion of properties.**
+
 <a id="verifiedProperties"></a>
 `verifiedProperties` _array (string), required_
 
 > Indicates the properties verified for the artifact (and not
 > its dependencies).
+
+**adityasaky: I'm worried about the definitions of dependency, properties, and
+dependencyProperties here.**
 
 <a id="dependencyProperties"></a>
 `dependencyProperties` _object, optional_
@@ -202,7 +212,7 @@ WARNING: This is just for demonstration purposes.
     }
   },
   "timeVerified": "1985-04-12T23:20:50.52Z",
-  "resourceUri": "https://example.com/example-1.2.3.tar.gz",
+  "subjectUri": "https://example.com/example-1.2.3.tar.gz",
   "policy": {
     "uri": "https://example.com/example_tarball.policy",
     "digest": {"sha256": "1234..."}
@@ -222,8 +232,6 @@ WARNING: This is just for demonstration purposes.
 }
 ```
 
-<div id="verificationresult">
-
 ## How to verify
 
 VSA consumers use VSAs to accomplish goals based on delegated trust. We call the
@@ -235,6 +243,7 @@ common.
 
 Verification MUST include the following steps:
 
+**adityasaky: This can be mapped more concretely to an in-toto layout.**
 1.  Verify the signature on the VSA envelope using the preconfigured roots of
     trust. This step ensures that the VSA was produced by a trusted producer
     and that it hasn't been tampered with.
@@ -243,19 +252,18 @@ Verification MUST include the following steps:
     question. This step ensures that the VSA pertains to the intended artifact.
 
 3.  Verify that the `predicateType` is
-    `https://in-toto.io/attestation/verification-summary/v0.1`. This step ensures
-    that the in-toto predicate is using this version of the VSA format.
+    `https://in-toto.io/attestation/verification-summary/v0.1`. This step
+    ensures that the in-toto predicate is using this version of the VSA format.
 
+**adityasaky: This should be merged with step 1 when we verify the signature. I
+suppose there's a question of multiple verifiers sharing a key?**
 4.  Verify that the `verifier` matches the public key (or equivalent) used to
     verify the signature in step 1. This step identifies the VSA producer in
     cases where their identity is not implicitly revealed in step 1.
 
-5.  Verify that the value for `resourceUri` in the VSA matches the expected
+5.  Verify that the value for `subjectUri` in the VSA matches the expected
     value. This step ensures that the consumer is using the VSA for the
     producer's intended purpose.
-
-6.  Verify that `verifiedLevels` contains the expected value. This step ensures
-    that the artifact is suitable for the consumer's purposes.
 
 Verification MAY additionally contain the following step:
 
@@ -263,7 +271,7 @@ Verification MAY additionally contain the following step:
     meets your goal.
 
 Verification mitigates different threats depending on the VSA's contents and the
-verification procudure.
+verification procedure.
 
 IMPORTANT: A VSA does not protect against compromise of the verifier, such as by
 a malicious insider. Instead, VSA consumers SHOULD carefully consider which
@@ -283,7 +291,7 @@ verifiers they add to their roots of trust.
 
     -   `verifier.id` is V.
 
-    -   `resourceUri` is R.
+    -   `subjectUri` is R.
 
     -   `verifiedlevels` contains `SLSA_BUILD_LEVEL_UNEVALUATED`.
 
@@ -305,7 +313,7 @@ verifiers they add to their roots of trust.
 
     -   `verifier.id` is V.
 
-    -   `resourceUri` is R.
+    -   `subjectUri` is R.
 
     -   `verifiedProperties` is `SLSA_BUILD_LEVEL_2` or `SLSA_BUILD_LEVEL_3`.
 
