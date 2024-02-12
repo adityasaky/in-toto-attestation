@@ -1,8 +1,8 @@
 # Predicate type: Verification Summary
 
-Type URI: https://in-toto.io/attestation/verification_summary/v1
+Type URI: https://in-toto.io/attestation/verification-summary/v0.1
 
-Version: 1.1
+Version: 0.1
 
 ## Purpose
 
@@ -62,7 +62,7 @@ wishing to establish minimum requirements on dependencies may use
 }],
 
 // Predicate
-"predicateType": "https://in-toto.io/attestation/verification_summary/v1",
+"predicateType": "https://in-toto.io/attestation/verification-summary/v0.1",
 "predicate": {
   "verifier": {
     "id": "<URI>",
@@ -72,7 +72,7 @@ wishing to establish minimum requirements on dependencies may use
     }
   },
   "timeVerified": <TIMESTAMP>,
-  "verifiedUri": <artifact-URI-in-request>,
+  "subjectUri": <artifact-URI-in-request>,
   "policy": {
     "uri": "<URI>",
     "digest": { /* DigestSet */ }
@@ -84,7 +84,6 @@ wishing to establish minimum requirements on dependencies may use
     },
     ...
   ],
-  "verificationResult": "<PASSED|FAILED>",
   "verifiedProperties": ["<String>"],
   "dependencyProperties": {
     "<String>": <Int>,
@@ -142,8 +141,8 @@ of the other top-level fields, such as `subject`, see [Statement]._
 
 > Timestamp indicating what time the verification occurred.
 
-<a id="resourceUri"></a>
-`resourceUri` _string ([ResourceURI]), required_
+<a id="subjectUri"></a>
+`subjectUri` _string ([ResourceURI]), required_
 
 > URI that identifies the resource associated with the artifact being verified.
 
@@ -158,7 +157,6 @@ of the other top-level fields, such as `subject`, see [Statement]._
 `inputAttestations` _array ([ResourceDescriptor]), optional_
 
 > The collection of attestations that were used to perform verification.
-> Conceptually similar to the `resolvedDependencies` field in [SLSA Provenance].
 >
 > This field MAY be absent if the verifier does not support this feature.
 > If non-empty, this field MUST contain information on _all_ the attestations
@@ -167,13 +165,8 @@ of the other top-level fields, such as `subject`, see [Statement]._
 > Each entry MUST contain a `digest` of the attestation and SHOULD contains a
 > `uri` that can be used to fetch the attestation.
 
-<a id="verificationResult"></a>
-`verificationResult` _string, required_
-
-> Either “PASSED” or “FAILED” to indicate if the artifact passed or failed the policy verification.
-
 <a id="verifiedProperties"></a>
-`verifiedProperties` _array (_string), required_
+`verifiedProperties` _array (string), required_
 
 > Indicates the properties verified for the artifact (and not
 > its dependencies).
@@ -185,7 +178,7 @@ of the other top-level fields, such as `subject`, see [Statement]._
 >
 > Map from _string_ to the number of the artifact's _transitive_ dependencies
 > that were verified at the indicated level. Absence of a given value
->  MUST be interpreted as reporting _0_ dependencies with that value.
+> MUST be interpreted as reporting _0_ dependencies with that value.
 
 ## Example
 
@@ -199,7 +192,7 @@ WARNING: This is just for demonstration purposes.
 }],
 
 // Predicate
-"predicateType": "https://in-toto.io/attestation/verification_summary/v1",
+"predicateType": "https://in-toto.io/attestation/verification-summary/v0.1",
 "predicate": {
   "verifier": {
     "id": "https://example.com/publication_verifier",
@@ -220,7 +213,6 @@ WARNING: This is just for demonstration purposes.
       "digest": {"sha256": "abcd..."}
     }
   ],
-  "verificationResult": "PASSED",
   "verifiedProperties": ["SLSA_BUILD_LEVEL_3"],
   "dependencyProperties": {
     "SLSA_BUILD_LEVEL_3": 5,
@@ -251,7 +243,7 @@ Verification MUST include the following steps:
     question. This step ensures that the VSA pertains to the intended artifact.
 
 3.  Verify that the `predicateType` is
-    `https://in-toto.io/attestation/verification_summary/v1`. This step ensures
+    `https://in-toto.io/attestation/verification-summary/v0.1`. This step ensures
     that the in-toto predicate is using this version of the VSA format.
 
 4.  Verify that the `verifier` matches the public key (or equivalent) used to
@@ -262,10 +254,7 @@ Verification MUST include the following steps:
     value. This step ensures that the consumer is using the VSA for the
     producer's intended purpose.
 
-6.  Verify that the value for `verificationResult` is `PASSED`. This step
-    ensures the artifact is suitable for the consumer's purposes.
-
-7.  Verify that `verifiedLevels` contains the expected value. This step ensures
+6.  Verify that `verifiedLevels` contains the expected value. This step ensures
     that the artifact is suitable for the consumer's purposes.
 
 Verification MAY additionally contain the following step:
@@ -290,13 +279,11 @@ verifiers they add to their roots of trust.
 
     -   `subject` is A.
 
-    -   `predicateType` is `https://in-toto.io/attestation/verification_summary/v1`.
+    -   `predicateType` is `https://in-toto.io/attestation/verification-summary/v0.1`.
 
     -   `verifier.id` is V.
 
     -   `resourceUri` is R.
-
-    -   `verificationResult` is `PASSED`.
 
     -   `verifiedlevels` contains `SLSA_BUILD_LEVEL_UNEVALUATED`.
 
@@ -314,13 +301,11 @@ verifiers they add to their roots of trust.
 
     -   `subject` is A.
 
-    -   `predicateType` is `https://in-toto.io/attestation/verification_summary/v1`.
+    -   `predicateType` is `https://in-toto.io/attestation/verification-summary/v0.1`.
 
     -   `verifier.id` is V.
 
     -   `resourceUri` is R.
-
-    -   `verificationResult` is `PASSED`.
 
     -   `verifiedProperties` is `SLSA_BUILD_LEVEL_2` or `SLSA_BUILD_LEVEL_3`.
 
@@ -346,13 +331,12 @@ verifiers they add to their roots of trust.
     -   Added optional `input_attestations` field.
 -   0.1: Initial version.
 
-[SLSA Provenance]: https://slsa.dev/spec/v1.0/provenance
-[DigestSet]: https://github.com/in-toto/attestation/blob/7aefca35a0f74a6e0cb397a8c4a76558f54de571/spec/v1/digest_set.md
-[ResourceURI]: https://github.com/in-toto/attestation/blob/7aefca35a0f74a6e0cb397a8c4a76558f54de571/spec/v1/field_types.md#resourceuri
-[ResourceDescriptor]: https://github.com/in-toto/attestation/blob/7aefca35a0f74a6e0cb397a8c4a76558f54de571/spec/v1/resource_descriptor.md
-[Statement]: https://github.com/in-toto/attestation/blob/7aefca35a0f74a6e0cb397a8c4a76558f54de571/spec/v1/statement.md
-[Timestamp]: https://github.com/in-toto/attestation/blob/7aefca35a0f74a6e0cb397a8c4a76558f54de571/spec/v1/field_types.md#timestamp
-[TypeURI]: https://github.com/in-toto/attestation/blob/7aefca35a0f74a6e0cb397a8c4a76558f54de571/spec/v1/field_types.md#TypeURI
-[in-toto attestation]: https://github.com/in-toto/attestation
-[parsing rules]: https://github.com/in-toto/attestation/blob/7aefca35a0f74a6e0cb397a8c4a76558f54de571/spec/v1/README.md#parsing-rules
+[SLSA Provenance]: /spec/predicates/provenance.md
+[DigestSet]: /spec/v1/digest_set.md
+[ResourceURI]: /spec/v1/field_types.md#resourceuri
+[ResourceDescriptor]: /spec/v1/resource_descriptor.md
+[Statement]: /spec/v1/statement.md
+[Timestamp]: /spec/v1/field_types.md#timestamp
+[TypeURI]: /spec/v1/field_types.md#TypeURI
+[parsing rules]: /spec/v1/README.md#parsing-rules
 [in-toto specification]: https://github.com/in-toto/docs/blob/master/in-toto-spec.md
